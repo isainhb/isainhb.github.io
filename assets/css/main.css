@@ -2738,7 +2738,7 @@ input, select, textarea {
 		input[type="button"].icon:before,
 		button.icon:before,
 		.button.icon:before {
-			margin-right: 0.5em;
+			margin-right: 0.0em;
 		}
 
 		input[type="submit"].fit,
@@ -2914,12 +2914,12 @@ input, select, textarea {
 
 	#header {
 		padding: 9em 0 9em 0 ;
-		background-color: #4686a0;
+		background-color: #2C5364;
 		color: rgba(255, 255, 255, 0.75);
-		background-attachment: fixed,							fixed,							fixed;
-		background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2);
-		background-position: top left,						center center,					center center;
-		background-size: auto,							cover,							cover;
+		background-attachment: fixed, fixed, fixed;
+		background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(135deg, #0F2027 5%, #203A43 30%, #2C5364);
+		background-position: top left, center center, center center;
+		background-size: auto, cover, cover;
 		overflow: hidden;
 		position: relative;
 		text-align: center;
@@ -3110,10 +3110,10 @@ input, select, textarea {
 
 	#footer {
 		padding: 6em 0 6em 0 ;
-		background-color: #4686a0;
+		background-color: #2C5364;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed,							fixed,							fixed;
-		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
+		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #0F2027, #203A43 50%, #2C5364 95%);
 		background-position: top left,						center center,					center center;
 		background-size: auto,							cover,							cover;
 		text-align: center;
@@ -3343,6 +3343,9 @@ input, select, textarea {
 			#two {
 				text-align: center;
 			}
+			#two li {
+				text-align: left;
+			}
 
 	}
 
@@ -3510,3 +3513,6 @@ input, select, textarea {
 			}
 
 	}
+
+	/* Custom styles */
+	
