@@ -3515,4 +3515,11 @@ input, select, textarea {
 	}
 
 	/* Custom styles */
+	.pf-element:hover {
+		cursor: pointer;
+	}
+	.swal2-confirm {
+		color: #fff !important;
+		line-height: normal;
+	}
 	

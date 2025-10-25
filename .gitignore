@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Node/npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Build / temporary files
+dist/
+build/
+.tmp/
+
+# VSCode
+.vscode/
+
+# Generated assets
+assets/css/*.map
+assets/js/*.map
+
+# Images cache
+images/.DS_Store
+
+# Ignore Python virtualenv
+venv/
+.env
+
+# OS generated files
+Thumbs.db
