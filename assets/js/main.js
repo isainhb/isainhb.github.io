@@ -5,49 +5,6 @@
 	var	$window = $(window),
 		$body = $('body');
 
-	// Simple HTML sanitizer (allow-list) to reduce XSS risk when using SweetAlert html content.
-	// Allows basic formatting tags and safe attributes on <a> elements. Removes script/style nodes and
-	// dangerous attributes (on*, javascript: hrefs).
-	function sanitizeHTML(dirty) {
-		var parser = new DOMParser();
-		var doc = parser.parseFromString(dirty, 'text/html');
-
-		var ALLOWED = {
-			'P': [], 'BR': [], 'STRONG': [], 'EM': [], 'UL': [], 'OL': [], 'LI': [], 'A': ['href','target','rel']
-		};
-
-		function clean(node) {
-			if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
-			if (node.nodeType !== Node.ELEMENT_NODE) return document.createDocumentFragment();
-
-			var name = node.nodeName.toUpperCase();
-			if (!ALLOWED[name]) {
-				// Replace disallowed element by its children (cleaned)
-				var frag = document.createDocumentFragment();
-				node.childNodes.forEach(function(c){ frag.appendChild(clean(c)); });
-				return frag;
-			}
-
-			var el = document.createElement(name.toLowerCase());
-			// copy allowed attributes
-			ALLOWED[name].forEach(function(attr){
-				if (node.hasAttribute && node.hasAttribute(attr)) {
-					var val = node.getAttribute(attr);
-					// Block javascript: hrefs
-					if (attr === 'href' && /^javascript:/i.test(val)) return;
-					el.setAttribute(attr, val);
-				}
-			});
-			// sanitize children
-			node.childNodes.forEach(function(c){ el.appendChild(clean(c)); });
-			return el;
-		}
-
-		var container = document.createElement('div');
-		doc.body.childNodes.forEach(function(n){ container.appendChild(clean(n)); });
-		return container.innerHTML;
-	}
-
 		// Breakpoints.
 		breakpoints({
 			xlarge:   [ '1141px',  '1680px' ],
@@ -68,36 +25,34 @@
 		// Scrolly.
 		$('.scrolly').scrolly();
 
+		// Initialize i18n
+		if (window.i18n && typeof window.i18n.init === 'function') {
+			window.i18n.init();
+		}
+
 		// Process all modals
+		// Use sanitizeHTML from utils.js to sanitize the HTML content
 		$('#pf-hipoteca-bancoppel').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Hipoteca Bancoppel",
-				html: sanitizeHTML(`
-					<p>Landing hipotecaria.</p>
-					<p>Backend desarrollado en FastAPI, con arquitectura de microservicios para separar funcionalidades (envío de documentos, historial crediticio, etc).</p>
-					<p>BD con MySQL, pruebas unitarias con Pytest y CI/CD con GitHub.</p>
-				`),
+				title: i18n.t('pf_hipoteca_title'),
+				html: sanitizeHTML(i18n.t('pf_hipoteca_html')),
 				imageUrl: new URL("images/projects/hipoteca_bancoppel.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Hipoteca BanCoppel",
+				imageAlt: i18n.t('pf_hipoteca_imageAlt'),
 			});
 		});
 
 		$('#pf-yave').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Yave",
-				html: sanitizeHTML(`
-					<p>Sitio web hipotecario en línea.</p>
-					<p>Backend desarrollado en Python/Django, con una arquitectura híbrida (monolito + microservicios) para ciertas funcionalidades.</p>
-					<p>Implementación de API REST con autenticación JWT. Integraciones con terceros (CRM, historial crediticio, entidad reguladora PLD, pasarela de pago, etc.).<br/>Desarrollo de herramientas internas con HTML, CSS y JS (Vue.js). CI/CD con GitHub y monitoreo de errores con Sentry.</p>
-				`),
+				title: i18n.t('pf_yave_title'),
+				html: sanitizeHTML(i18n.t('pf_yave_html')),
 				imageUrl: new URL("images/projects/yave.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Yave",
+				imageAlt: i18n.t('pf_yave_imageAlt'),
 			});
 		});
 
@@ -120,16 +75,12 @@
 		$('#pf-futuro').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Futuro sin humo",
-				html: sanitizeHTML(`
-					<p>Landing para una campaña de Philip Morris</p>
-					<p>Registro de alrededor de 500 usuarios diarios.</p>
-					<p>Desarrollado con Laravel y JS (jQuery).</p>
-				`),
+				title: i18n.t('pf_futuro_title'),
+				html: sanitizeHTML(i18n.t('pf_futuro_html')),
 				imageUrl: new URL("images/projects/futuro-sin-humo.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Futuro sin humo",
+				imageAlt: i18n.t('pf_futuro_imageAlt'),
 			});
 		});
 
@@ -137,64 +88,48 @@
 		$('#pf-neuland').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Neuland",
-				html: sanitizeHTML(`
-					<p>Sitio web de una tienda virtual para Philip Morris</p>
-					<p>Contaba con juegos en los que los usuarios ganaban puntos canjeables por productos físicos, además de secciones de videos y notas.</p>
-					<p>Desarrollado con WordPress (partes del backend hechas a medida) y con un Single Sign-On (SSO) para manejar la autenticación de usuarios entre dos sitios.</p>
-				`),
+				title: i18n.t('pf_neuland_title'),
+				html: sanitizeHTML(i18n.t('pf_neuland_html')),
 				imageUrl: new URL("images/projects/neuland_small.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Neuland",
+				imageAlt: i18n.t('pf_neuland_imageAlt'),
 			});
 		});
 
 		$('#pf-expansion').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Expansión",
-				html: sanitizeHTML(`
-					<p>Portal para Grupo Expansión.</p>
-					<p>Sitio de noticias.</p>
-					<p>Uso de Java para modificar un CMS propietario.</p>
-				`),
+				title: i18n.t('pf_expansion_title'),
+				html: sanitizeHTML(i18n.t('pf_expansion_html')),
 				imageUrl: new URL("images/projects/expansion_mx.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Expansión",
+				imageAlt: i18n.t('pf_expansion_imageAlt'),
 			});
 		});
 
 		$('#pf-espectaculos-televisa').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Espectáculos Televisa",
-				html: sanitizeHTML(`
-					<p>Sitio para notas de espectáculos.</p>
-					<p>Actualización del sitio de esmas.com</p>
-					<p>Uso de PHP, JS y CSS.</p>
-				`),
+				title: i18n.t('pf_espectaculos_title'),
+				html: sanitizeHTML(i18n.t('pf_espectaculos_html')),
 				imageUrl: new URL("images/projects/espectaculos_televisa.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Espectáculos Televisa",
+				imageAlt: i18n.t('pf_espectaculos_imageAlt'),
 			});
 		});
 
 		$('#pf-caminos-libertad').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Caminos de la libertad",
-				html: sanitizeHTML(`
-					<p>Portal para notas periodísticas.</p>
-					<p>Desarrollo del sitio de notas y del back office para gestionar las notas.</p>
-					<p>PHP (CodeIgniter), MySQL, HTML, CSS y JS(jQuery).</p>
-				`),
+				title: i18n.t('pf_caminos_title'),
+				html: sanitizeHTML(i18n.t('pf_caminos_html')),
 				imageUrl: new URL("images/projects/caminos_libertad.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Caminos de la libertad",
+				imageAlt: i18n.t('pf_caminos_imageAlt'),
 			});
 		});
 
@@ -202,17 +137,15 @@
 		$('#pf-chopped-tomato').click(function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: "Chopped Tomato",
-				html: sanitizeHTML(`
-					<p>Videojuego 2D desarrollado en Godot Engine 3.5 durante un fin de semana como parte del Game Jam 34, con un equipo de 3 personas.</p>
-				`),
+				title: i18n.t('pf_chopped_tomato_title'),
+				html: sanitizeHTML(i18n.t('pf_chopped_tomato_html')),
 				imageUrl: new URL("images/projects/chopped_tomato.webp", currentMainUrl).href,
 				imageWidth: 400,
 				imageHeight: 200,
-				imageAlt: "Chopped Tomato",
-				confirmButtonText: "Ir al sitio",
+				imageAlt: i18n.t('pf_chopped_tomato_imageAlt'),
+				confirmButtonText: i18n.t('pf_chopped_confirm'),
 				showCancelButton: true,
-				cancelButtonText: "Ok",
+				cancelButtonText: i18n.t('pf_chopped_cancel'),
 				cancelButtonColor: 'rgba(164, 164, 164, 1)',
 			}).then((result) => {
 				if (result.isConfirmed) {
