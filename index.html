@@ -23,16 +23,18 @@
 		<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 	</head>
 	<body class="is-preload">
-
+		<div class="lang-switcher">
+			<button id="lang-es" class="lang-btn active" role="button" aria-label="Cambiar a Español">ES</button>
+			<button id="lang-en" class="lang-btn" role="button" aria-label="Switch to English">EN</button>
+		</div>
 		<!-- Header -->
 			<section id="header">
 				<div class="inner">
 					<span class="icon solid major fa-cloud"></span>
-					<h1><strong>Isain Hernández</strong><br />
-					Desarrollador Backend Senior</h1>
-					<p>Ingeniería de producto y soluciones escalables en Python y PHP. Enfoque en arquitectura, rendimiento y liderazgo técnico.</p>
+					<h1 data-i18n-html="header_title_html"></h1>
+					<p data-i18n="header_subtitle"></p>
 					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">M&aacute;s informaci&oacute;n</a></li>
+						<li><a href="#one" class="button scrolly" data-i18n="header_more"></a></li>
 					</ul>
 				</div>
 			</section>
@@ -43,16 +45,13 @@
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Sobre mí</h2>
+								<h2 data-i18n="about_me_title"></h2>
 							</header>
-							<p>Egresado del Instituto Politécnico Nacional, ESCOM.</p>
-							<p>Backend Developer Senior 5+ a&ntilde;os de experiencia, complementados con 10+ años de experiencia en desarrollo web, especializado en la creación de soluciones escalables y de alto rendimiento utilizando Python (Django, FastAPI) y PHP (Laravel).</p>
-							<p>Mi propuesta de valor se centra en una fuerte mentalidad de producto, que me permite transformar objetivos de negocio complejos en arquitecturas técnicas robustas y eficientes.</p>
-							<p>Destaco en el liderazgo técnico, el fomento de buenas prácticas (a través de revisiones de código y CI/CD) y la colaboración efectiva con equipos multidisciplinarios para asegurar la entrega de valor con alto grado de responsabilidad y calidad. Experiencia en entornos cloud (AWS) e integración de herramientas de IA para optimizar la productividad del equipo.</p>
+							<p data-i18n-html="about_me_html"></p>
 						</div>
-                            <div class="col-6 col-12-medium imp-medium">
-                            	<span class="image fit"><img src="images/isain_foto.webp" alt="Foto de Isain Hernández" /></span>
-                        	</div>
+							<div class="col-6 col-12-medium imp-medium">
+								<span class="image fit"><img src="images/isain_foto.webp" data-i18n-alt="me_photo_alt" /></span>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -71,28 +70,14 @@
 						</div>
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>Experiencia</h2>
+								<h2 data-i18n="skills_title"></h2>
 							</header>
-							<h2>Back End</h2>
-							<ul>
-								<li>Python (Django, FastAPI)</li>
-								<li>SQL y gestores de BD (PostgreSQL, MySQL)</li>
-								<li>API REST y JWT</li>
-								<li>PHP (Laravel)</li>
-							</ul>
-							<h2>Front End</h2>
-							<ul>
-								<li>JS (Jquery, Vue.js)</li>
-								<li>HTML y CSS para maquetado de sitios</li>
-							</ul>
-							<h2>Otros Skills</h2>
-							<ul>
-								<li>Certifiaciones: AWS Cloud Practitioner</li>
-								<li>Git (GitHub, GitLab)</li>
-								<li>Docker</li>
-								<li>Metodolog&iacute;as &aacute;giles: Scrum, Kanban, Scrumban</li>	
-								<li>Uso de herramientas de IA</li>
-							</ul>
+							<h2 data-i18n="skills_backend_title"></h2>
+							<ul data-i18n-html="skills_backend_html"></ul>
+							<h2 data-i18n="skills_frontend_title"></h2>
+							<ul data-i18n-html="skills_frontend_html"></ul>
+							<h2 data-i18n="skills_other_title"></h2>
+							<ul data-i18n-html="skills_other_html"></ul>
 						</div>
 					</div>
 				</div>
@@ -102,11 +87,11 @@
 			<section id="three" class="main style1 special">
 				<div class="container">
 					<header class="major">
-						<h2>Portafolio</h2>
+						<h2 data-i18n="portfolio_title"></h2>
 					</header>
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
-							<span class="image fit pf-element" id="pf-hipoteca-bancoppel" data-img="images/projects/hipoteca_bancoppel.webp"><img src="images/projects/hipoteca_bancoppel.webp" alt="Hipoteca Bancoppel — captura" /></span>
+							<span class="image fit pf-element" id="pf-hipoteca-bancoppel" data-img="images/projects/hipoteca_bancoppel.webp"><img src="images/projects/hipoteca_bancoppel.webp" data-i18n-alt="pf_hipoteca_imageAlt" /></span>
 							<h3>Hipoteca Bancoppel</h3>
 							<p>Yave<br>
 							2025</p>
@@ -114,17 +99,17 @@
 								<li><a href="https://hipoteca.bancoppel.com/" target="_blank" rel="noopener noreferrer" class="button primary icon solid fa-link"></a></li>
 							</ul>
 						</div>
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-yave"><img src="images/projects/yave-small.webp" alt="Plataforma Yave — captura" /></span>
-							<h3>Plataforma Yave</h3>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-yave"><img src="images/projects/yave-small.webp" data-i18n-alt="pf_yave_imageAlt" /></span>
+							<h3 data-i18n="pf_yave_titleproject"></h3>
 							<p>Yave<br>
 							2020 - 2025</p>
 							<ul class="actions special">
 								<li><a href="https://yave.mx" target="_blank" rel="noopener noreferrer" class="button primary icon solid fa-link"></a></li>
 							</ul>
 						</div>
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-futuro"><img src="images/projects/futuro-sin-humo.webp" alt="Futuro sin humo — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-futuro"><img src="images/projects/futuro-sin-humo.webp" data-i18n-alt="pf_futuro_imageAlt" /></span>
 							<h3>Futuro sin humo</h3>
 							<p>Wunderman Thompson M&eacute;xico<br>
 							2019</p>
@@ -134,14 +119,14 @@
 					</div>
 
 					<div class="row gtr-150">
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-neuland"><img src="images/projects/neuland_small.webp" alt="Neuland — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-neuland"><img src="images/projects/neuland_small.webp" data-i18n-alt="pf_neuland_imageAlt" /></span>
 							<h3>Neuland</h3>
 							<p>Wunderman Thompson M&eacute;xico<br>
 							2018</p>
 						</div>
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-expansion"><img src="images/projects/expansion_mx.webp" alt="Expansión — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-expansion"><img src="images/projects/expansion_mx.webp" data-i18n-alt="pf_expansion_imageAlt" /></span>
 							<h3>Expansi&oacute;n</h3>
 							<p>Grupo Expansi&oacute;n<br>
 							2016</p>
@@ -149,8 +134,8 @@
 								<li><a href="https://web.archive.org/web/20160505023054/http://expansion.mx/" target="_blank" rel="noopener noreferrer" class="button primary icon solid fa-link"></a></li>
 							</ul>
 						</div>
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-espectaculos-televisa"><img src="images/projects/espectaculos_televisa.webp" alt="Espectáculos Televisa — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-espectaculos-televisa"><img src="images/projects/espectaculos_televisa.webp" data-i18n-alt="pf_espectaculos_imageAlt" /></span>
 							<h3>Espect&aacute;culos Televisa</h3>
 							<p>Estrategas Digitales<br>
 							2015</p>
@@ -161,8 +146,8 @@
 					</div>
 
 					<div class="row gtr-150">
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-caminos-libertad"><img src="images/projects/caminos_libertad.webp" alt="Caminos de la libertad — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-caminos-libertad"><img src="images/projects/caminos_libertad.webp" data-i18n-alt="pf_caminos_imageAlt" /></span>
 							<h3>Caminos de la libertad</h3>
 							<p>GB Mobile<br>
 							2013</p>
@@ -178,16 +163,15 @@
 			<section id="four" class="main style2 special">
 				<div class="container">
 					<header class="major">
-						<h2>Proyectos personales</h2>
+						<h2 data-i18n="pf_personal_title"></h2>
 					</header>
 					<div class="row gtr-150">
-                            <div class="col-4 col-12-medium">
-                            	<span class="image fit pf-element" id="pf-chopped-tomato"><img src="images/projects/chopped_tomato.webp" alt="Chopped Tomato — captura" /></span>
+						<div class="col-4 col-12-medium">
+							<span class="image fit pf-element" id="pf-chopped-tomato"><img src="images/projects/chopped_tomato.webp" data-i18n-alt="pf_chopped_tomato_imageAlt" /></span>
 							<h3>Chopped Tomato</h3>
-							<p>Desarrollado en un fin de semana entre 3 personas para un Game Jam<br>
-							2024</p>
+							<p data-i18n="pf_chopped_tomato_desc"></p>
 							<ul class="actions special">
-								<li><a href="https://hagenhb.itch.io/chopped-tomato" target="_blank" rel="noopener noreferrer" class="button">Ver</a></li>
+								<li><a href="https://hagenhb.itch.io/chopped-tomato" target="_blank" rel="noopener noreferrer" class="button" data-i18n="pf_chopped_tomato_btntxt"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -198,12 +182,12 @@
 			<section id="footer">
 				<ul class="icons">
 					<li><a href="https://github.com/isainhb" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="mailto:isainhernandez@gmail.com" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="#" id="contact-email" target="_blank" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>Sitio web creado por Isain Hernández</li>
-					<li>Los logotipos, marcas y materiales visuales mostrados son propiedad de sus respectivos titulares y se utilizan únicamente con fines ilustrativos y de portafolio.</li>
-					<li>Template design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">Photon by HTML5 UP</a> | @ajlknn</li>
+					<li data-i18n="footer_contact_creator"></li>
+					<li data-i18n="footer_contact_disclaimer"></li>
+					<li class="external-link">Template design: <a href="http://html5up.net" target="_blank" rel="noopener noreferrer">Photon by HTML5 UP</a> | @ajlknn</li>
 				</ul>
 			</section>
 
@@ -215,7 +199,8 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/framebust.js"></script>
-			<script src="assets/js/contact.js"></script>
+			<script src="assets/js/utils.js"></script>
+			<script src="assets/js/i18n.js"></script>
 			<script src="assets/js/main.js"></script>
 	</body>
 </html>
